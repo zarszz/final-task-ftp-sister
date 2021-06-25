@@ -32,11 +32,14 @@ def upload(username):
     files = os.listdir(os.getcwd())
     for i in range(len(files)):
         print(f"{i + 1}.{files[i]}")
-    print(f'{len(files)}. Kembali')
+    print(f'{len(files) + 1}. Kembali')
     # Select the file that will uploaded to server
-    choice = int(input(f"Silahkan pilih file diatas(1-{len(files)}) -> ")) - 1
+    choice = int(input(f"Silahkan pilih file diatas(1-{len(files) + 1}) -> ")) - 1
     if choice not in range(len(files)):
         print('Pilihan tidak valid !!')
+        loading(2)
+        from cli import main
+        main(username)
 
     if choice == len(files):
         from cli import main
@@ -66,6 +69,12 @@ def download(username):
         print(f'{i + 1}. {files[i]}')
     print(f'{len(files) + 1}. Kembali')
     choice = int(input(f"Masukkan pilihan anda (1-{len(files)}) -> "))
+
+    if choice not in range(len(files)):
+        print('Pilihan tidak valid !!')
+        loading(2)
+        from cli import main
+        main(username)
 
     if choice == len(files) + 1:
         from cli import main
@@ -107,6 +116,13 @@ def downloads(username):
         print(f'{len(files) + 1}. Cukup')
         print(f'{len(files) + 2}. Kembali')
         choice = int(input(f'Masukkan pilihan anda (1-{len(files) + 2}) -> '))
+
+        if choice not in range(len(files)):
+            print('Pilihan tidak valid !!')
+            loading(2)
+            from cli import main
+            main(username)
+
         if choice == len(files) + 1:
             is_finished = True
         if choice == len(files) + 2:
@@ -148,6 +164,13 @@ def uploads(username):
         print(f'{len(files) + 1}. Cukup')
         print(f'{len(files) + 2}. Kembali')
         choice = int(input(f'Masukkan pilihan anda (1-{len(files) + 2}) -> '))
+
+        if choice not in range(len(files)):
+            print('Pilihan tidak valid !!')
+            loading(2)
+            from cli import main
+            main(username)
+
         if choice == len(files) + 1:
             is_finished = True
         if choice == len(files) + 2:

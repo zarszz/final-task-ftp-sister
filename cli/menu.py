@@ -37,3 +37,4 @@ def main(username):
         exit(0)
     else:
         print('Pilihan tidak valid !!')
+        exit(0)
