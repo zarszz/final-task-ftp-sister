@@ -1,4 +1,4 @@
-from xmlrpc.server import SimpleXMLRPCServer
+from xmlrpc.server import SimpleXMLRPCServer, SimpleXMLRPCRequestHandler
 
 import xmlrpc.client
 import os
